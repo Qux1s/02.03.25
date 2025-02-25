@@ -1,0 +1,73 @@
+#include <iostream>
+#include <limits>
+
+void ignoreLine();
+int userPrintInteger();
+bool isContinue();
+void printResult(int);
+
+int main()
+{
+	PrintResult()
+}
+
+void printResult()
+{
+    do
+	{
+	std::cout << userPrintInteger() <<" is " << "evenOrNot(userPrintInteger())" << "odd";
+
+	} while (isContinue());
+}
+
+char evenOrNot(int userPrintInteger())
+{
+	if(userNumber%2=0)
+}
+ 
+int userPrintInteger()
+{
+	std::cout << "Enter an integer: ";
+
+	while (true)
+	{
+
+		int userInteger{};
+
+		std::cin >> userInteger;
+
+
+		if (!std::cin.fail())
+		{
+			ignoreLine();
+
+			return userInteger;
+		}
+		else
+		{
+			std::cin.clear();
+
+			ignoreLine();
+
+			std::cout << "Oops, that input is invalid.  Please try again.\n";
+		}
+	}
+}
+
+void ignoreLine()
+{
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+bool isContinue()
+{
+	std::cout << "Enter 'y' to continue or n to stop: ";
+
+	char userResult{};
+
+	std::cin >> userResult;
+
+	return userResult == 'y' || userResult == 'Y';
+}
+
+"Какая то фунция которая принимает болл и выводит кусочек текста который отличает чётное от нечетного и передает значение в принтресулт"
