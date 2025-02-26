@@ -1,0 +1,20 @@
+#include <iostream>
+
+const char* getName(bool evenOrNot);
+bool evenOrNot();
+
+int main()
+{
+std::cout << getName(evenOrNot());
+}
+
+const char* getName(bool evenOrNot)
+{
+	if(evenOrNot)
+	return "Alex";
+}
+
+bool evenOrNot()
+{
+	return true;
+}
