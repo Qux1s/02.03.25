@@ -1,0 +1,88 @@
+#include <iostream>
+#include <limits>
+
+const char* getName(bool evenOrNot);
+bool evenOrNot(int userInteger);
+void printResult();
+int userPrintInteger();
+void ignoreLine();
+bool isContinue();
+
+int main()
+{
+    printResult();
+}
+
+const char* getName(bool evenOrNot)
+{
+    if (evenOrNot)
+    {
+        return " not";
+    }
+    return"";
+}
+
+bool evenOrNot(int userInteger)
+{
+    if (userInteger % 2 == 0)
+    {
+        return true;
+    }
+    return false;
+}
+
+void printResult()
+{
+    do
+    {
+        int userInteger{ userPrintInteger() };
+
+        std::cout << userInteger << " is" << getName(evenOrNot(userInteger)) << " odd" << '\n';
+
+    } while (isContinue());
+}
+
+int userPrintInteger()
+{
+    std::cout << "Enter an integer: ";
+
+    while (true)
+    {
+
+        int userInteger{};
+
+        std::cin >> userInteger;
+
+
+        if (!std::cin.fail())
+        {
+            ignoreLine();
+
+            return userInteger;
+        }
+        else
+        {
+            std::cin.clear();
+
+            ignoreLine();
+
+            std::cout << "Oops, that input is invalid.  Please try again.\n";
+        }
+    }
+}
+
+void ignoreLine()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+bool isContinue()
+{
+    std::cout << "Enter 'y' to continue or n to stop: ";
+
+    char userResult{};
+
+    std::cin >> userResult;
+
+    return userResult == 'y' || userResult == 'Y';
+}
