@@ -1,0 +1,13 @@
+#include <iostream>
+
+const char* getName();
+
+int main()
+{
+std::cout << getName();
+}
+
+const char* getName()
+{
+	return "Alex";
+}
