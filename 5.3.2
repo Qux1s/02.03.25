@@ -1,18 +1,88 @@
+#include <iostream>
+#include <limits>
+
+const char* printNot(bool evenOrNot);
+bool oddOrNotodd(int userInteger);
+void printResult();
+int userPrintInteger();
+void ignoreLine();
+bool isContinue();
+
 int main()
 {
-PrintResult() 
-} 
+    printResult();
+}
+
+const char* printNot(bool evenOrNot)
+{
+    if (evenOrNot)
+    {
+        return " not";
+    }
+    return"";
+}
+
+bool oddOrNotodd(int userInteger)
+{
+    if (userInteger % 2 == 0)
+    {
+        return true;
+    }   
+    return false;
+}
 
 void printResult()
 {
-While(true) 
-std:cout трали вали
-Бесконечный цикл на 'y' 
-} 
+    do
+    {
+        int userInteger{ userPrintInteger() };
 
-bool evenOrNot() 
-{
+        std::cout << userInteger << " is" << printNot(oddOrNotodd(userInteger)) << " odd" << '\n';
 
+    } while (isContinue());
 }
 
- "Какая то фунция которая принимает болл и выводит кусочек текста который отличает чётное от нечетного и передает значение в принтресулт" 
+int userPrintInteger()
+{
+    std::cout << "Enter an integer: ";
+
+    while (true)
+    {
+
+        int userInteger{};
+
+        std::cin >> userInteger;
+
+
+        if (!std::cin.fail())
+        {
+            ignoreLine();
+
+            return userInteger;
+        }
+        else
+        {
+            std::cin.clear();
+
+            ignoreLine();
+
+            std::cout << "Oops, that input is invalid.  Please try again.\n";
+        }
+    }
+}
+
+void ignoreLine()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+bool isContinue()
+{
+    std::cout << "Enter 'y' to continue or n to stop: ";
+
+    char userResult{};
+
+    std::cin >> userResult;
+
+    return userResult == 'y' || userResult == 'Y';
+}
