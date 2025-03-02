@@ -1,0 +1,69 @@
+#include <iostream>
+
+int userNumber();
+bool isPrime(int numberUserTest);
+bool digitIsPrimeOrNot();
+void printResult();
+const char* printNot();
+
+int main()
+{
+    printResult();
+}
+
+int userNumber()
+{
+    std::cout << "Enter a integer: ";
+
+    int numberFromUser{ 0 };
+
+    std::cin >> numberFromUser;
+
+    return numberFromUser;
+}
+
+bool isPrime(int numberUserTest)
+{
+    if (numberUserTest == 2)
+        return false;
+    else
+    {
+        for (int count{ 3 }; count <= (numberUserTest / 2); count += 2)
+
+            if (numberUserTest % count == 0)
+            {
+                return true;
+            }
+    }
+    return false;
+}
+
+bool digitIsPrimeOrNot()
+{
+    int numberUserTest{ userNumber() };
+
+    if (isPrime(numberUserTest))
+    {
+        return true;
+    }
+
+    else
+    {
+        return false;
+    }
+
+}
+
+const char* printNot()
+{
+    if (digitIsPrimeOrNot())
+    {
+        return "The digit is not";
+    }
+    return "The digit is";
+}
+
+void printResult()
+{
+    std::cout << printNot() << " prime.";
+}
